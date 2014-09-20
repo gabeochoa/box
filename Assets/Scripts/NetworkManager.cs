@@ -81,5 +81,6 @@ public class NetworkManager : MonoBehaviour {
 		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Alino", PhotonNetwork.playerList.Length > 1? pos1.localPosition : pos2.localPosition ,PhotonNetwork.playerList.Length > 1? pos1.localRotation : pos2.localRotation,0);
 		loadcam.SetActive(false);
 		myPlayerGO.transform.FindChild("OVRCameraController").gameObject.SetActive(true);
+		myPlayerGO.transform.GetComponent("PLayerMvt").enabled = true;
 	}
 }
