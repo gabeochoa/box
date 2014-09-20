@@ -78,7 +78,7 @@ public class NetworkManager : MonoBehaviour {
 	void SpawnMyPlayer() {
 		Debug.Log("Spawning player: " + PhotonNetwork.player.name);
 
-		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Ali", PhotonNetwork.playerList.Length > 1? pos1.localPosition : pos2.localPosition ,PhotonNetwork.playerList.Length > 1? pos1.localRotation : pos2.localRotation,0);
+		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Alino", PhotonNetwork.playerList.Length > 1? pos1.localPosition : pos2.localPosition ,PhotonNetwork.playerList.Length > 1? pos1.localRotation : pos2.localRotation,0);
 		loadcam.SetActive(false);
 		myPlayerGO.transform.FindChild("OVRCameraController").gameObject.SetActive(true);
 		//myPlayerGO.transform.GetComponent("PLayerMvt").enabled = true;
