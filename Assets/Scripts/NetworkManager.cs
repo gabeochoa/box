@@ -20,7 +20,7 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	void Connect() {
-		PhotonNetwork.ConnectUsingSettings( "dkbox" );
+		PhotonNetwork.ConnectUsingSettings( "dkbox4" );
 	}
 	
 	void OnGUI() {
@@ -77,9 +77,8 @@ public class NetworkManager : MonoBehaviour {
 	
 	void SpawnMyPlayer() {
 		Debug.Log("Spawning player: " + PhotonNetwork.player.name);
-		Vector3 spawn = new Vector3 (0 + Random.Range (1,2), 0, 0);
 
-		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Alino", PhotonNetwork.playerList.Length > 1? pos1.localPosition : pos2.localPosition ,Quaternion.identity,0);
+		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Alino", PhotonNetwork.playerList.Length > 1? pos1.localPosition : pos2.localPosition ,PhotonNetwork.playerList.Length > 1? pos1.localRotation : pos2.localRotation,0);
 		loadcam.SetActive(false);
 		myPlayerGO.transform.FindChild("OVRCameraController").gameObject.SetActive(true);
 	}

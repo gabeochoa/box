@@ -8,8 +8,7 @@ public class PlayerMvt : MonoBehaviour {
 	// location to other computers.
 	
 	public float speed = 10f;		// The speed at which I run
-	public float jumpSpeed = 6f;	// How much power we put into our jump. Change this to jump higher.
-	
+
 	// Booking variables
 	Vector3 direction = Vector3.zero;	// forward/back & left/right
 	float   verticalVelocity = 0;		// up/down
@@ -30,10 +29,7 @@ public class PlayerMvt : MonoBehaviour {
 		if(direction.magnitude > 1f) {
 			direction = direction.normalized;
 		}
-		
-		if(cc.isGrounded && Input.GetButton("Jump")) {
-			verticalVelocity = jumpSpeed;
-		}
+
 	}
 	
 	// FixedUpdate is called once per physics loop

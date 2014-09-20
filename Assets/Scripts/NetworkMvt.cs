@@ -33,15 +33,6 @@ public class NetworkMvt : Photon.MonoBehaviour {
 			stream.SendNext(transform.rotation);
 		}
 		else {
-			// This is someone else's player. We need to receive their position (as of a few
-			// millisecond ago, and update our version of that player.
-			
-			// Right now, "realPosition" holds the other person's position at the LAST frame.
-			// Instead of simply updating "realPosition" and continuing to lerp,
-			// we MAY want to set our transform.position to immediately to this old "realPosition"
-			// and then update realPosition
-			
-			
 			realPosition = (Vector3)stream.ReceiveNext();
 			realRotation = (Quaternion)stream.ReceiveNext();
 			
