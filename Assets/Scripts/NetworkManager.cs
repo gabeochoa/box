@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public class NetworkManager : MonoBehaviour {
 	public GameObject loadcam;
+	
+	public Transform pos1;
+	public Transform pos2;
 
 	public bool offlineMode = false;
 	bool connecting = false;
@@ -76,7 +79,7 @@ public class NetworkManager : MonoBehaviour {
 		Debug.Log("Spawning player: " + PhotonNetwork.player.name);
 		Vector3 spawn = new Vector3 (0 + Random.Range (1,2), 0, 0);
 
-		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Ali", spawn,Quaternion.identity,0);
+		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Alino", PhotonNetwork.playerList.Length > 1? pos1.localPosition : pos2.localPosition ,Quaternion.identity,0);
 		loadcam.SetActive(false);
 		myPlayerGO.transform.FindChild("OVRCameraController").gameObject.SetActive(true);
 	}
