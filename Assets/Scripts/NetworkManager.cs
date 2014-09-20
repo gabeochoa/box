@@ -74,8 +74,9 @@ public class NetworkManager : MonoBehaviour {
 	
 	void SpawnMyPlayer() {
 		Debug.Log("Spawning player: " + PhotonNetwork.player.name);
+		Vector3 spawn = new Vector3 (0 + Random.Range (1,2), 0, 0);
 
-		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Ali", Vector3.zero,Quaternion.identity,0);
+		GameObject myPlayerGO = (GameObject)PhotonNetwork.Instantiate("Ali", spawn,Quaternion.identity,0);
 		loadcam.SetActive(false);
 		myPlayerGO.transform.FindChild("OVRCameraController").gameObject.SetActive(true);
 	}
